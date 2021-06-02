@@ -8,13 +8,14 @@ const connect = function () {
 
   conn.setEncoding('utf8');
 
-  conn.on('data', (serverMessage) => {
-    console.log('Message from server: ', serverMessage);
+  conn.on('connect', () => {
+    console.log("successfully connected");
+    conn.write('Name: YCL')
   });
 
-  conn.on('connect', () => {
-    console.log('connected');
-  });
+  conn.on('data', () => {
+    console.log('New message from the server.')
+  })
 
   return conn;
 };
