@@ -10,12 +10,12 @@ const connect = function () {
 
   conn.on('connect', () => {
     console.log("successfully connected");
-    conn.write('Name: YCL')
+    conn.write('Name: YCL');
   });
 
-  conn.on('data', () => {
-    console.log('New message from the server.')
-  })
+  conn.on('connect', () => {
+    console.log('New message from the server.');
+  });
 
   return conn;
 };
